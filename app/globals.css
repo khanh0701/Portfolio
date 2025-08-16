@@ -112,31 +112,30 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
   * {
-    scrollbar-width: thin;
-    scrollbar-color: #1cc1dd transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Chrome, Edge, Safari */
+  ::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+    background: var(--background);
   }
 
-  /* Chrome, Edge, Safari */
-  *::-webkit-scrollbar {
-    height: 1px;
-    width: 30px;
-  }
-  *::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  *::-webkit-scrollbar-thumb {
-    background-color: #1cc1dd;
-    border-radius: 0;
-  }
-  *::-webkit-scrollbar-button {
-    display: none;
+  ::-webkit-scrollbar-thumb {
+    background: #1cc1dd;
+    -webkit-border-radius: 1ex;
   }
 }
